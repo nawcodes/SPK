@@ -29,11 +29,9 @@ include "head.php";
 							<tr>
 								<th>No</th>
 								<th>Nama Mahasiswa</th>
-								<th>Nilai IPK</th>
-								<th>Penghasilan Ortu</th>
-								<th>Semester</th>
-								<th>Jumlah Tanggungan</th>
-								<th>Usia</th>
+								<th>Nilai Akhir</th>
+								<th>Jumlah Sertifikat</th>
+								<th>Nilai Sikap/th>
 							</tr>
 						</thead>
 						<tbody>
@@ -45,11 +43,9 @@ include "head.php";
 							<tr>
 								<td><?php echo $nomor=$nomor+1;?></td>
 								<td><?php echo $dataku['nama_mhs']; ?></td>
-								<td><?php echo $dataku['nilai_ipk']; ?></td>
-								<td><?php echo $dataku['penghasilan_ortu']; ?></td>
-								<td><?php echo $dataku['semester']; ?></td>
-								<td><?php echo $dataku['jml_tanggungan']; ?></td>
-								<td><?php echo $dataku['usia']; ?></td>
+								<td><?php echo $dataku['nilai_akhir']; ?></td>
+								<td><?php echo $dataku['sertifikat']; ?></td>
+								<td><?php echo $dataku['nilai_sikap']; ?></td>
 							</tr>
 						<?php }	?>
 						</tbody>

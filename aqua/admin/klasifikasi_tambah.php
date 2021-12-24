@@ -33,10 +33,12 @@ include "head.php";
                         </div>
                     </div>
 
+                    
+
                     <div class="form-group">
-                        <label class="col-sm-2 control-label text-right">Nilai IPK:</label>
+                        <label class="col-sm-2 control-label text-right">Nilai Akhir:</label>
                         <div class="col-sm-3">
-                            <select name='nilai_ipk' data-placeholder="Pilih Nilai IPK..." class="required select">
+                            <select name='nilai_akhir' data-placeholder="Pilih Nilai Akhir..." class="required select">
                                 <option></option>";
                                 <?php
                                 $query = "SELECT * FROM himpunan where id_kriteria='6' order by id_himpunan asc";
@@ -51,12 +53,12 @@ include "head.php";
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label text-right">Penghasilan Ortu:</label>
+                        <label class="col-sm-2 control-label text-right">Jumlah Sertifikat:</label>
                         <div class="col-sm-4">
-                            <select name='penghasilan_ortu' data-placeholder="Pilih Penghasilan Ortu..." class="required select">
+                            <select name='sertifikat' data-placeholder="Pilih Penghasilan Ortu..." class="required select">
                                 <option></option>
                                 <?php
-                                $query = "SELECT * FROM himpunan where id_kriteria='2' order by id_himpunan asc";
+                                $query = "SELECT * FROM himpunan where id_kriteria='7' order by id_himpunan asc";
                                 $hasil = mysqli_query($conn,$query);
                                 while ($data = mysqli_fetch_array($hasil)) 
                                 {
@@ -68,12 +70,12 @@ include "head.php";
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label text-right">Semester:</label>
+                        <label class="col-sm-2 control-label text-right">Nilai Sikap:</label>
                         <div class="col-sm-3">
-                            <select name='semester' data-placeholder="Pilih Semester..." class="required select">
+                            <select name='nilai_sikap' data-placeholder="Pilih nilai_sikap..." class="required select">
                                 <option></option>
                                 <?php
-                                    $query = "SELECT * FROM himpunan where id_kriteria='3' order by id_himpunan asc";
+                                    $query = "SELECT * FROM himpunan where id_kriteria='8' order by id_himpunan asc";
                                     $hasil = mysqli_query($conn,$query);
                                     while ($data = mysqli_fetch_array($hasil)) 
                                     {
@@ -84,39 +86,7 @@ include "head.php";
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label text-right">Jumlah Tanggungan:</label>
-                        <div class="col-sm-3">
-                            <select name="jml_tanggungan" data-placehoder="Pilih Tanggungan..." class="required select">
-                                <option></option>
-                                <?php
-                                    $query = "SELECT * FROM himpunan where id_kriteria='4' order by id_himpunan asc";
-                                    $hasil = mysqli_query($conn,$query);
-                                    while ($data = mysqli_fetch_array($hasil)) 
-                                    {
-                                        echo "<option value='".$data['nilai']."'>".$data['namahimpunan']."</option>";
-                                    }
-                                ?>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label text-right">Usia:</label>
-                        <div class="col-sm-3">
-                            <select name='usia' data-placeholder="Pilih Sikap..." class="required select">
-                                <option></option>
-                                <?php
-                                    $query = "SELECT * FROM himpunan where id_kriteria='5' order by id_himpunan asc";
-                                    $hasil = mysqli_query($conn,$query);
-                                    while ($data = mysqli_fetch_array($hasil)) 
-                                    {
-                                        echo "<option value='".$data['nilai']."'>".$data['namahimpunan']."</option>";
-                                    }
-                                ?>
-                            </select>
-                        </div>
-                    </div>
+                 
 
                     <div class="form-action text-right">
                         <input type="submit" name="simpan" value="Simpan" class="btn btn-primary">
@@ -142,14 +112,11 @@ include "head.php";
 <?php
 if (isset($_POST['simpan'])) {
     $id_mhs     = $_POST['id_mhs'];
-    $nilai_ipk  = $_POST['nilai_ipk'];
-    $penghasilan_ortu = $_POST['penghasilan_ortu'];
-    $semester   = $_POST['semester'];
-    $jml_tanggungan = $_POST['jml_tanggungan'];
-    $usia       = $_POST['usia'];
-
+    $nilai_akhir  = $_POST['nilai_akhir'];
+    $sertifikat = $_POST['sertifikat'];
+    $nilai_sikap   = $_POST['nilai_sikap'];
     $sql = "insert into klasifikasi values
-    ('','$id_mhs','$jml_tanggungan','$nilai_ipk','$penghasilan_ortu','$semester','$usia')";
+    ('','$id_mhs','$nilai_akhir','$sertifikat','$nilai_sikap')";
     $query = mysqli_query($conn,$sql) or die(mysqli_connect_error());
     if ($query) {        
     echo "<script>window.alert('Klasifikasi berhasil di tambah');

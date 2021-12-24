@@ -4,9 +4,9 @@ include "../cek-login.php";
 
 $term = $_GET['term'];
 
-$query = mysql_query("select * from calonbeasiswa where nama_mhs like '%".$term."%'");
+$query = mysqli_query($conn,"select * from calonbeasiswa where nama_mhs like '%".$term."%'");
 $json = array();
-while ($ketik = mysql_fetch_array($query)) {
+while ($ketik = mysqli_fetch_array($query)) {
 	$json[] = array(
 		'label' => $ketik['nama_mhs'], // text sugesti sat user mengetik di input box
 		'value' => $ketik['nama_mhs'], // nilai yang akan di masukan di inputbox saat user memilih salah satu sugesti
