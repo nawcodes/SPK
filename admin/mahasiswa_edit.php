@@ -25,25 +25,25 @@ $dataku = mysqli_fetch_array($query);
 			<!-- Right labels -->
 			<form class="form-horizontal" action="mahasiswa_edit.php" method="post" role="form">
 				<div class="panel panel-default">
-					<div class="panel-heading"><h6 class="panel-title">Calon Beasiswa</h6></div>
+					<div class="panel-heading"><h6 class="panel-title">Calon Prestasi</h6></div>
 					<div class="panel-body">
 
 						<div class="form-group">
-							<label class="col-sm-2 control-label text-right">Id Calon Beasiswa:</label>
+							<label class="col-sm-2 control-label text-right">Id Siswa:</label>
 							<div class="col-sm-10">
 								<input type="text" name="id_mhs" value="<?php echo $dataku['id_mhs']; ?>" class="form-control" required>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-sm-2 control-label text-right">Mahasiswa:</label>
+							<label class="col-sm-2 control-label text-right">Siswa:</label>
 							<div class="col-sm-10">
 								<input type="text" name="nama_mhs" value="<?php echo $dataku['nama_mhs']; ?>" required class="form-control">
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-sm-2 control-label text-right">Jurusan:</label>
+							<label class="col-sm-2 control-label text-right">Kejuruan:</label>
 							<div class="col-sm-10">
 								<input type="text" name="jurusan" value="<?php echo $dataku['jurusan']; ?>" required class="form-control">
 							</div>

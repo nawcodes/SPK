@@ -78,7 +78,7 @@ $jam	 = date("H:i:s");
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="index.php"><img src="../images/gambar2.png" alt=""></a>
+				<a class="navbar-brand" href="index.php">Anisa - SAW PRESTASI SISWA</a>
 			</div>
 			<div class="navbar-right">
 				<a class="navbar-brand" href="logout.php"><i class="fa fa-sign-out"></i> Sign out</a>

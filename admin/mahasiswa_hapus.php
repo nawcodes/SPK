@@ -7,7 +7,7 @@ $q = mysqli_query($conn,"DELETE FROM klasifikasi WHERE id_mhs='$id_mhs'") or die
 if ($query) {
 ?>
 <script language="JavaScript">
-	alert('Data calon Beasiswa berhasil di hapus');
+	alert('Data Calon Prestasi berhasil di hapus');
 	document.location='mahasiswa.php';
 </script>
 <?php

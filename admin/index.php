@@ -45,7 +45,7 @@ include "head.php";
 
 
 	<div id="contenttext">
-		<span class="title_blue"><a class="navbar-brand-right"><img src="../images/gambar.png" alt=""></a></span><br />
+		<span class="title_blue"><a class="navbar-brand-right">"Pemilihan Siswa Berprestasi"</a></span><br />
 
 
 		<div class="content" align="left">
@@ -53,10 +53,10 @@ include "head.php";
 			<ul>
 				<h3><i class="fa fa-home"></i> Dalam Aplikasi Ini Terdapat Fitur-fitur sebagai berikut:</h3>
 				<ul>
-					<h4><i class="fa fa-users"></i> Mahasiswa</h4>
+					<h4><i class="fa fa-users"></i> Siswa</h4>
 					<ul>
-						<h6><i class='fa fa-plus'></i> Tambah Data Calon Beasiswa<br></h6>
-						<h6><i class='fa fa-edit'></i>Edit Data Mahasiswa<br></h6>
+						<h6><i class='fa fa-plus'></i> Tambah Data Calon Siswa Berprestasi<br></h6>
+						<h6><i class='fa fa-edit'></i>Edit Data Siswa<br></h6>
 						<h6><i class='fa fa-eraser'></i>Hapus Data</h6>
 					</ul>
 

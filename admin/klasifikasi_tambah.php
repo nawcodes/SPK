@@ -26,7 +26,7 @@ include "head.php";
                     <div class="panel-body">
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label text-right">Nama Mahasiswa:</label>
+                        <label class="col-sm-2 control-label text-right">Nama Siswa:</label>
                         <div class="col-sm-3">
                             <input type=text name='nama_mhs' id='nama_mhs' required>
                             <input type=hidden name='id_mhs' id='id_mhs' required>

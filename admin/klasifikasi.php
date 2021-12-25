@@ -28,7 +28,7 @@ include "head.php";
 						<thead>
 							<tr>
 								<th>No</th>
-								<th>Nama Mahasiswa</th>
+								<th>Nama Siswa</th>
 								<th>Nilai Akhir</th>
 								<th>Jumlah Sertifikat</th>
 								<th>Nilai Sikap/th>

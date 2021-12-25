@@ -19,16 +19,16 @@ include "head.php";
 
 			<!-- Hover rows datatable inside panel -->
 			<div class="panel panel-default">
-				<div class="panel-heading" align="right"><h6 class="panel-title"><i class="fa fa-male"></i> Data Mahasiswa</h6>
-				<a href="mahasiswa_tambah.php"><input type="submit" value="Tambah Mahasiswa" class="btn btn-info"></a>
+				<div class="panel-heading" align="right"><h6 class="panel-title"><i class="fa fa-male"></i> Data Siswa</h6>
+				<a href="mahasiswa_tambah.php"><input type="submit" value="Tambah Siswa" class="btn btn-info"></a>
 				</div>
 				<div class="datatable">
 					<table class="table table-hover">
 						<thead>
 							<tr>
 								<th>No</th>
-								<th>Nama Mahasiswa</th>
-								<th>Jurusan</th>
+								<th>Nama Siswa</th>
+								<th>Kejuruan</th>
 								<th>Aksi</th>
 							</tr>
 						</thead>

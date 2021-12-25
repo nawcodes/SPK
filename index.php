@@ -22,7 +22,7 @@
                     <li class="user dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                            
-                            <span>Seleksi Pemberian Beasiswa Metode SAW</span>
+                            <span>Seleksi Pemberian Prestasi Metode SAW</span>
                             
                         </a>
                     </li>

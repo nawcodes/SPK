@@ -22,21 +22,21 @@
                         
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label text-right">Id Calon Beasiswa:</label>
+                            <label class="col-sm-2 control-label text-right">Id Calon Prestasi:</label>
                             <div class="col-sm-10">
                                 <input type="text" name="id_mhs" class="form-control" value="<?php echo kdauto('calonbeasiswa','CPB-'); ?>" readonly="true" required>
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label class="col-sm-2 control-label text-right">Nama Calon Beasiswa:</label>
+                            <label class="col-sm-2 control-label text-right">Nama Calon Prestasi:</label>
                             <div class="col-sm-10">
                                 <input type="text" name="nama_mhs" required class="form-control">
                             </div>
                         </div>
 						
 						<div class="form-group">
-                            <label class="col-sm-2 control-label text-right">Jurusan:</label>
+                            <label class="col-sm-2 control-label text-right">Kejuruan:</label>
                             <div class="col-sm-10">
                                 <input type="text" name="jurusan" required class="form-control">
                             </div>
@@ -60,7 +60,7 @@ if(isset($_POST['simpan'])){
 	('$id_mhs','$nama_mhs','$jurusan')";
 	$query= mysqli_query($conn,$sql) or die(mysqli_connect_error());
 	if($query) {
-	echo "<script>window.alert('Calon Beasiswa berhasil ditambah');
+	echo "<script>window.alert('Calon Prestasi berhasil ditambah');
             window.location=(href='mahasiswa.php')</script>";
 	}}
 ?>			
