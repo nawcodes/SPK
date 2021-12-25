@@ -21,9 +21,9 @@
             		<div class="panel-body">
             			
             			<div class="form-group">
-            				<label class="col-sm-3 control-label text-right">C1. Nilai IPK:</label>
+            				<label class="col-sm-3 control-label text-right">C1. Nilai Akhir:</label>
             				<div class="col-sm-8">
-            					<select name='bobot_nilai_ipk' class="required select">
+            					<select name='bobot_nilai_akhir' class="required select">
             						<option value="1">Sangat Rendah</option>
             						<option value="2">Rendah</option>
             						<option value="3">Cukup</option>
@@ -34,9 +34,9 @@
             			</div>
 
             			<div class="form-group">
-            				<label class="col-sm-3 control-label text-right">C2. Penghasilan Ortu:</label>
+            				<label class="col-sm-3 control-label text-right">C2. Jumlah Sertifikat:</label>
             				<div class="col-sm-8">
-            					<select name='bobot_penghasilan_ortu' class="required select">
+            					<select name='bobot_sertifikat' class="required select">
             						<option value="1">Sangat Rendah</option>
             						<option value="2">Rendah</option>
             						<option value="3">Cukup</option>
@@ -47,9 +47,9 @@
             			</div>
 
             			<div class="form-group">
-            				<label class="col-sm-3 control-label text-right">C3. Semester:</label>
+            				<label class="col-sm-3 control-label text-right">C3. Nilai Sikap:</label>
             				<div class="col-sm-8">
-            					<select name='bobot_semester' class="required select">
+            					<select name='bobot_nilai_sikap' class="required select">
             						<option value="1">Sangat Rendah</option>
             						<option value="2">Rrendah</option>
             						<option value="3">Cukup</option>
@@ -59,31 +59,6 @@
             				</div>
             			</div>
 
-            			<div class="form-group">
-            				<label class="col-sm-3 control-label text-right">C4. Jumlah Tanggungan:</label>
-            				<div class="col-sm-8">
-            					<select name='bobot_tanggungan' class="required select">
-            						<option value="1">Sangat Rendah</option>
-            						<option value="2">Rrendah</option>
-            						<option value="3">Cukup</option>
-            						<option value="4">Tinggi</option>
-            						<option value="5">Sangat Tinggi</option>
-            					</select>
-            				</div>
-            			</div>
-
-            			<div class="form-group">
-            				<label class="col-sm-3 control-label text-right">C5. Usia:</label>
-            				<div class="col-sm-8">
-            					<select name='bobot_usia' class="required select">
-            						<option value="1">Sangat Rendah</option>
-            						<option value="2">Rrendah</option>
-            						<option value="3">Cukup</option>
-            						<option value="4">Tinggi</option>
-            						<option value="5">Sangat Tinggi</option>
-            					</select>
-            				</div>
-            			</div>
 
             			<div class="form-action text-right">
             				<input type="submit" name="simpan" value="Proses" class="btn btn-primary">
