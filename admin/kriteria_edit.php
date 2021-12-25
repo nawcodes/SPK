@@ -20,14 +20,14 @@ include "head.php";
 
 			<!-- Right labels -->
 <?php
-$id_kriteria = $_GET['id_kriteria'];
-$query=mysqli_query($conn,"select * from kriteria where id_kriteria='$id_kriteria'");
-$dataku=mysqli_fetch_array($query);
-$id_kriteria = $dataku['id_kriteria']; 
+$id_kriteria = $_GET['id_kriteria'] ? $_GET['id_kriteria'] : '';
+$query = mysqli_query($conn, "SELECT * FROM kriteria WHERE id_kriteria='" . $id_kriteria . "'");
+$dataku = mysqli_fetch_array($query);
+
 
 ?>
-			<form class="form-horizontal" action="kriteria_edit.php?id_kriteria=<?= $dataku['id_kriteria']?>" method="post" role="form">
-			<input type="hidden" name='id_kriteria' value="<?= $dataku['id_kriteria']?>" >
+			<form class="form-horizontal" action="kriteria_edit.php" method="post" role="form">
+			<input type="hidden" name='id_kriteria' value="<?= $id_kriteria ?>" >
 				<div class="panel panel-default">
 					<div class="panel-heading"><h6 class="panel-title">Data Kriteria</h6></div>
 					<div class="panel-body">
@@ -66,7 +66,8 @@ if (isset($_POST['ubah'])) {
 	$atribut 		= $_POST['atribut'];
 
 
-	$query=mysqli_query($conn,"UPDATE kriteria SET namakriteria='$namakriteria', atribut='$atribut', WHERE id_kriteria='$id_kriteria'") or die(mysqli_connect_error());
+	// $query=mysqli_query($conn,"UPDATE kriteria SET namakriteria='$namakriteria', atribut='$atribut', WHERE id_kriteria='$id_kriteria'") or die(mysqli_connect_error());
+	$query=mysqli_query($conn, "UPDATE `kriteria` SET `namakriteria` = '$namakriteria', `atribut` = '$atribut' WHERE `kriteria`.`id_kriteria` = '$id_kriteria'") or die(mysqli_connect_error());
 	if ($query) {
 	echo "<script>window.alert('Kriteria berhasil diubah');
 			window.location=(href='kriteria.php')</script>";
