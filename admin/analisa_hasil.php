@@ -74,11 +74,11 @@
 	$carimax = mysqli_query($conn, "SELECT MAX(nilai_akhir) as max1, MAX(sertifikat) as max2, MAX(nilai_sikap) as max3 FROM `klasifikasi`");
 	$max = mysqli_fetch_array($carimax);
 
-	
+
 	# Cari nilai minimal
 	$carimin = mysqli_query($conn, "SELECT MIN(nilai_akhir) as min1, MIN(sertifikat) as min2, MIN(nilai_sikap) as min3 FROM `klasifikasi`");
 	$min = mysqli_fetch_array($carimin);
-	
+
 	?>
 	<div class="panel panel-default">
 		<div class="panel-heading">
@@ -105,7 +105,7 @@
 							<td><?php echo $nomor = $nomor + 1; ?></td>
 							<td><?php echo $dataku['nama_mhs']; ?></td>
 							<td><?php echo round($dataku['nilai_akhir'] / $max['max1'], 2); ?></td>
-							<td><?php echo round($min['min2'] / $dataku['sertifikat'], 2); ?></td>
+							<td><?php echo round($dataku['sertifikat'] / $max['max2'], 2); ?></td>
 							<td><?php echo round($dataku['nilai_sikap'] / $max['max3'], 2); ?></td>
 							<!-- <td><?php echo round($min['min4'] / $dataku['jml_tanggungan'], 2); ?></td> -->
 							<!-- <td><?php echo round($dataku['usia'] / $max['max5'], 2); ?></td> -->
@@ -133,21 +133,21 @@
 					<tr>
 						<th>No</th>
 						<th>Nama</th>
-						<th>Nilai</th>
+						<th>Hasil Nilai</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php
 					$nomor = 0;
-					$hasil = mysqli_query($conn, "select * from klasifikasi, calonbeasiswa where klasifikasi.id_mhs=calonbeasiswa.id_mhs");
+					$hasil = mysqli_query($conn, "select * from klasifikasi, calonbeasiswa where klasifikasi.id_mhs=calonbeasiswa.id_mhs ORDER BY nilai_akhir DESC");
 					while ($dataku = mysqli_fetch_array($hasil)) {
 					?>
 						<tr>
 							<td><?php echo $nomor = $nomor + 1; ?></td>
 							<td><?php echo $dataku['nama_mhs']; ?></td>
-							<td><?php echo round((($dataku['nilai_akhir'] / $max['max1']) * $bobot_nilai_ipk) +
-									(($min['min2'] / $dataku['sertifikat']) * $bobot_penghasilan_ortu) +
-									(($dataku['nilai_sikap'] / $max['max3']) * $bobot_semester), 2); ?></td>
+							<td><?php echo round((($dataku['nilai_akhir'] / $max['max1']) * ($bobot_nilai_ipk)) +
+									(($min['min2'] / $dataku['sertifikat']) * ( $bobot_penghasilan_ortu)) +
+									(($dataku['nilai_sikap'] / $max['max3']) *  ( $bobot_semester)), 2); ?></td>
 						</tr>
 					<?php }	?>
 				</tbody>
