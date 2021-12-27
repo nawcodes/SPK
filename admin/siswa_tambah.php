@@ -15,7 +15,7 @@
 			<!-- /page title -->
 
 			<!-- Right labels -->
-			<form class="form-horizontal" action="mahasiswa_tambah.php" method="post" role="form">
+			<form class="form-horizontal" action="siswa_tambah.php" method="post" role="form">
                 <div class="panel panel-default">
                     <div class="panel-heading"><h6 class="panel-title">Calon Siswa</h6></div>
                     <div class="panel-body">
@@ -61,7 +61,7 @@ if(isset($_POST['simpan'])){
 	$query= mysqli_query($conn,$sql) or die(mysqli_connect_error());
 	if($query) {
 	echo "<script>window.alert('Calon Prestasi berhasil ditambah');
-            window.location=(href='mahasiswa.php')</script>";
+            window.location=(href='siswa.php')</script>";
 	}}
 ?>			
             <!-- /right labels -->

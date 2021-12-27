@@ -8,7 +8,7 @@ if ($query) {
 ?>
 <script language="JavaScript">
 	alert('Data Calon Prestasi berhasil di hapus');
-	document.location='mahasiswa.php';
+	document.location='siswa.php';
 </script>
 <?php
 }

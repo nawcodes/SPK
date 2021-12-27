@@ -20,7 +20,7 @@ include "head.php";
 			<!-- Hover rows datatable inside panel -->
 			<div class="panel panel-default">
 				<div class="panel-heading" align="right"><h6 class="panel-title"><i class="fa fa-male"></i> Data Siswa</h6>
-				<a href="mahasiswa_tambah.php"><input type="submit" value="Tambah Siswa" class="btn btn-info"></a>
+				<a href="siswa_tambah.php"><input type="submit" value="Tambah Siswa" class="btn btn-info"></a>
 				</div>
 				<div class="datatable">
 					<table class="table table-hover">
@@ -43,10 +43,10 @@ include "head.php";
 									<td><?php echo $dataku['nama_mhs']; ?></td>
 									<td><?php echo $dataku['jurusan']; ?></td>
 									<td>
-										<a href="mahasiswa_edit.php?id_mhs=<?php echo $dataku['id_mhs']; ?>">
+										<a href="siswa_edit.php?id_mhs=<?php echo $dataku['id_mhs']; ?>">
 										<i class='fa fa-edit'></i>
 										</a>
-										<a href="mahasiswa_hapus.php?id_mhs=<?php echo $dataku['id_mhs']; ?>">
+										<a href="siswa_hapus.php?id_mhs=<?php echo $dataku['id_mhs']; ?>">
 										<i class='fa fa-eraser'></i>
 										</a>
 									</td>

@@ -23,7 +23,7 @@ $query = mysqli_query($conn ,"select * from calonbeasiswa where id_mhs='$id_mhs'
 $dataku = mysqli_fetch_array($query);
 ?>
 			<!-- Right labels -->
-			<form class="form-horizontal" action="mahasiswa_edit.php" method="post" role="form">
+			<form class="form-horizontal" action="siswa_edit.php" method="post" role="form">
 				<div class="panel panel-default">
 					<div class="panel-heading"><h6 class="panel-title">Calon Prestasi</h6></div>
 					<div class="panel-body">
@@ -66,7 +66,7 @@ if (isset($_POST['ubah'])) {
 	$query=mysqli_query($conn,"UPDATE calonbeasiswa SET nama_mhs='$nama_mhs', jurusan='$jurusan' WHERE id_mhs='$id_mhs'") or die(mysqli_connect_error());
 	if ($query) {
 		echo "<script>window.alert('Siswa berhasil diubah');
-				window.location=(href='mahasiswa.php')</script>";
+				window.location=(href='siswa.php')</script>";
 	}}
 ?>
 		<!-- /right labels -->
