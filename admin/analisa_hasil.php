@@ -139,15 +139,22 @@
 				<tbody>
 					<?php
 					$nomor = 0;
+					// $query = "SELECT *,
+					// 		 ((`klasifikasi`.`nilai_akhir` / MAX(`nilai_akhir`) * ( {$bobot_nilai_ipk} / 100))
+					// 		+ (`klasifikasi`.`sertifikat` / MAX(`sertifikat`) * ({$bobot_penghasilan_ortu} / 100))
+					// 		+ (`klasifikasi`.`nilai_sikap` / MAX(`nilai_sikap`) * ({$bobot_semester} / 100)) )
+					// 		as ref  FROM `klasifikasi`, `calonbeasiswa` WHERE `klasifikasi`.`id_mhs`= `calonbeasiswa`.`id_mhs`";
 					$hasil = mysqli_query($conn, "select * from klasifikasi, calonbeasiswa where klasifikasi.id_mhs=calonbeasiswa.id_mhs ORDER BY nilai_akhir DESC");
+					// $hasil = mysqli_query($conn, $query);
 					while ($dataku = mysqli_fetch_array($hasil)) {
 					?>
 						<tr>
 							<td><?php echo $nomor = $nomor + 1; ?></td>
 							<td><?php echo $dataku['nama_mhs']; ?></td>
-							<td><?php echo round((($dataku['nilai_akhir'] / $max['max1']) * ($bobot_nilai_ipk)) +
-									(($min['min2'] / $dataku['sertifikat']) * ( $bobot_penghasilan_ortu)) +
-									(($dataku['nilai_sikap'] / $max['max3']) *  ( $bobot_semester)), 2); ?></td>
+							<td><?php echo round((($dataku['nilai_akhir'] / $max['max1']) * ($bobot_nilai_ipk / 100)) +
+									(($dataku['sertifikat'] / $max['max2']) * ( $bobot_penghasilan_ortu / 100)) +
+									(($dataku['nilai_sikap'] / $max['max3']) *  ( $bobot_semester / 100)), 2); ?>
+							</td>
 						</tr>
 					<?php }	?>
 				</tbody>
