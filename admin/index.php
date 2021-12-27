@@ -67,11 +67,11 @@ include "head.php";
 						<h6><i class='fa fa-eraser'></i> Hapus Data</h6>
 					</ul>
 
-					<h4><i class="fa fa-bookmark"></i>Bobot Kriteria</h4>
+					<h4><i class="fa fa-bookmark"></i>Nilai Kriteria</h4>
 					<ul>
-						<h6><i class='fa fa-plus'></i> Tambah Bobot Kriteria<br></h6>
-						<h6><i class='fa fa-edit'></i> Edit Data Bobot Kriteria<br></h6>
-						<h6><i class='fa fa-eraser'></i> Hapus Bobot Kriteria</h6>
+						<h6><i class='fa fa-plus'></i> Tambah Nilai Kriteria<br></h6>
+						<h6><i class='fa fa-edit'></i> Edit Data Nilai Kriteria<br></h6>
+						<h6><i class='fa fa-eraser'></i> Hapus Nilai Kriteria</h6>
 					</ul>
 					<h4><i class="fa fa-tag"></i> Klasifikasi</h4>
 					<ul>
