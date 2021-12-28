@@ -37,7 +37,7 @@ include "head.php";
                 <div class="form-group">
                     <label class="col-sm-2 control-label text-right">Nama Siswa:</label>
                     <div class="col-sm-3">
-                        <input type="text" name='id_mhs' id='id_mhs' value="<?= $dataku['id_mhs'] ?>" required >
+                        <input type="text" name='id_mhs' id='id_mhs' value="<?= $dataku['id_mhs'] ?>" required>
                         <small><br>
                             ID SISWA JANGAN DI RUBAH</small>
                     </div>
@@ -48,7 +48,7 @@ include "head.php";
                 <div class="form-group">
                     <label class="col-sm-2 control-label text-right">Nilai Akhir:</label>
                     <div class="col-sm-3">
-                        <input type="number" name='nilai_akhir' id='id_akhir' value="<?= $dataku['nilai_akhir']?>">
+                        <input type="number" name='nilai_akhir' id='id_akhir' value="<?= $dataku['nilai_akhir'] ?>">
                         <!-- <select name='nilai_akhir' data-placeholder="Pilih Nilai Akhir..." class="required select">
                             <option></option>";
                             <?php
@@ -64,7 +64,8 @@ include "head.php";
                 <div class="form-group">
                     <label class="col-sm-2 control-label text-right">Jumlah Sertifikat:</label>
                     <div class="col-sm-4">
-                        <select name='sertifikat' data-placeholder="Pilih Penghasilan Ortu..." class="required select">
+                        <input type="number" name='sertifikat' id='id_akhir' value="<?= $dataku['sertifikat'] ?>">
+                        <!-- <select name='sertifikat' data-placeholder="Pilih Penghasilan Ortu..." class="required select">
                             <option></option>
                             <?php
                             $query = "SELECT * FROM himpunan where id_kriteria='7' order by id_himpunan asc";
@@ -73,14 +74,15 @@ include "head.php";
                             ?>
                                 <option value='<?= $data['nilai'] ?>' <?= $data['nilai'] === $dataku['sertifikat'] ? 'selected' : '' ?>> <?= $data['namahimpunan'] ?> </option>
                             <?php endwhile; ?>
-                        </select>
+                        </select> -->
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label text-right">Nilai Sikap:</label>
                     <div class="col-sm-3">
-                        <select name='nilai_sikap' data-placeholder="Pilih nilai_sikap..." class="required select">
+                        <input type="number" name='nilai_sikap' id='id_akhir' value="<?= $dataku['nilai_sikap'] ?>">
+                        <!-- <select name='nilai_sikap' data-placeholder="Pilih nilai_sikap..." class="required select">
                             <option></option>
                             <?php
                             $query = "SELECT * FROM himpunan where id_kriteria='8' order by id_himpunan asc";
@@ -89,7 +91,7 @@ include "head.php";
                             ?>
                                 <option value='<?= $data['nilai'] ?>' <?= $data['nilai'] === $dataku['nilai_sikap'] ? 'selected' : '' ?>> <?= $data['namahimpunan'] ?> </option>
                             <?php endwhile; ?>
-                        </select>
+                        </select> -->
                     </div>
                 </div>
 
@@ -124,9 +126,9 @@ include "head.php";
         $nilai_sikap   = $_POST['nilai_sikap'];
         $query = mysqli_query($conn, "UPDATE `klasifikasi` SET `nilai_akhir` = '$nilai_akhir', `sertifikat` = '$sertifikat' , `nilai_sikap` = '$nilai_sikap' WHERE `klasifikasi`.`id_mhs` = '$id_mhs'") or die(mysqli_connect_error());
         
-    //     $sql = "insert into klasifikasi values
-    // ('','$id_mhs','$nilai_akhir','$sertifikat','$nilai_sikap')";
-    //     $query = mysqli_query($conn, $sql) or die(mysqli_connect_error());
+        //     $sql = "insert into klasifikasi values
+        // ('','$id_mhs','$nilai_akhir','$sertifikat','$nilai_sikap')";
+        //     $query = mysqli_query($conn, $sql) or die(mysqli_connect_error());
         if ($query) {
             echo "<script>window.alert('Klasifikasi berhasil di ubah');
             window.location=(href='klasifikasi.php')</script>";
