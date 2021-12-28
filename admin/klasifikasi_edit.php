@@ -48,7 +48,8 @@ include "head.php";
                 <div class="form-group">
                     <label class="col-sm-2 control-label text-right">Nilai Akhir:</label>
                     <div class="col-sm-3">
-                        <select name='nilai_akhir' data-placeholder="Pilih Nilai Akhir..." class="required select">
+                        <input type="number" name='nilai_akhir' id='id_akhir' value="<?= $dataku['nilai_akhir']?>">
+                        <!-- <select name='nilai_akhir' data-placeholder="Pilih Nilai Akhir..." class="required select">
                             <option></option>";
                             <?php
                             $query = "SELECT * FROM himpunan where id_kriteria='6' order by id_himpunan asc";
@@ -56,7 +57,7 @@ include "head.php";
                             while ($data = mysqli_fetch_array($hasil)) : ?>
                                 <option value='<?= $data['nilai'] ?>' <?= $data['nilai'] === $dataku['nilai_akhir'] ? 'selected' : '' ?>> <?= $data['namahimpunan'] ?> </option>
                             <?php endwhile; ?>
-                        </select>
+                        </select> -->
                     </div>
                 </div>
 
