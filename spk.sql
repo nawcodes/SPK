@@ -1,23 +1,24 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
--- http://www.phpmyadmin.net
+-- version 5.1.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2014 at 02:41 AM
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: Dec 27, 2021 at 04:31 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `spk_beasiswa`
+-- Database: `spk_old`
 --
 
 -- --------------------------------------------------------
@@ -26,12 +27,12 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE IF NOT EXISTS `admin` (
-`id_user` int(5) NOT NULL,
+CREATE TABLE `admin` (
+  `id_user` int(5) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `nama` varchar(100) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
@@ -46,7 +47,7 @@ INSERT INTO `admin` (`id_user`, `username`, `password`, `nama`) VALUES
 -- Table structure for table `calonbeasiswa`
 --
 
-CREATE TABLE IF NOT EXISTS `calonbeasiswa` (
+CREATE TABLE `calonbeasiswa` (
   `id_mhs` varchar(10) NOT NULL,
   `nama_mhs` varchar(100) NOT NULL,
   `jurusan` text NOT NULL
@@ -61,7 +62,8 @@ INSERT INTO `calonbeasiswa` (`id_mhs`, `nama_mhs`, `jurusan`) VALUES
 ('CPB-000002', 'Bimbi', 'Informatika'),
 ('CPB-000003', 'Seno', 'Informatika'),
 ('CPB-000004', 'Agus', 'Informatika'),
-('CPB-000005', 'Khairunisa', 'Informatika');
+('CPB-000005', 'Khairunisa', 'Informatika'),
+('CPB-000006', 'rifalnurchya', 'Sistem Informasi');
 
 -- --------------------------------------------------------
 
@@ -69,13 +71,13 @@ INSERT INTO `calonbeasiswa` (`id_mhs`, `nama_mhs`, `jurusan`) VALUES
 -- Table structure for table `himpunan`
 --
 
-CREATE TABLE IF NOT EXISTS `himpunan` (
-`id_himpunan` int(5) NOT NULL,
+CREATE TABLE `himpunan` (
+  `id_himpunan` int(5) NOT NULL,
   `id_kriteria` int(5) NOT NULL,
   `namahimpunan` varchar(100) NOT NULL,
   `nilai` varchar(100) NOT NULL,
   `keterangan` varchar(100) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=45 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `himpunan`
@@ -101,7 +103,20 @@ INSERT INTO `himpunan` (`id_himpunan`, `id_kriteria`, `namahimpunan`, `nilai`, `
 (41, 5, '> 21 Tahun', '25', 'Kurang'),
 (42, 5, '20 - 21 Tahun', '50', 'Cukup'),
 (43, 5, '18 - 19 Tahun', '75', 'Baik'),
-(44, 5, 'Usia < 18 Tahun', '100', 'Sangat Baik');
+(44, 5, 'Usia < 18 Tahun', '100', 'Sangat Baik'),
+(45, 6, 'Nilai <= 25', '25', 'kurang'),
+(46, 0, 'A2 = 83', '50', 'Cukup'),
+(47, 6, 'Nilai <= 50', '50', 'Cukup'),
+(48, 0, '82', '70', 'Baik'),
+(49, 6, 'Nilai >= 70', '70', 'Baik'),
+(51, 7, 'Sertifikat <= 2 ', '2', 'Kurang Baik'),
+(52, 7, 'Sertifikat = 3', '3', 'Cukup'),
+(53, 7, 'Sertifikat = 4', '4', 'Baik'),
+(54, 7, 'Sertifikat >= 5', '5', 'Sangat Baik'),
+(55, 8, 'NS <= 2', '2', 'Kurang Baik'),
+(56, 8, 'NS = 3', '3 ', 'Cukup'),
+(57, 8, 'NS = 4', '4', 'Baik'),
+(58, 8, 'NS >= 5', '5', 'Sangat Baik');
 
 -- --------------------------------------------------------
 
@@ -109,26 +124,26 @@ INSERT INTO `himpunan` (`id_himpunan`, `id_kriteria`, `namahimpunan`, `nilai`, `
 -- Table structure for table `klasifikasi`
 --
 
-CREATE TABLE IF NOT EXISTS `klasifikasi` (
-`id_klasifikasi` int(5) NOT NULL,
+CREATE TABLE `klasifikasi` (
+  `id_klasifikasi` int(5) NOT NULL,
   `id_mhs` varchar(10) NOT NULL,
-  `jml_tanggungan` double NOT NULL,
-  `nilai_ipk` double NOT NULL,
-  `penghasilan_ortu` double NOT NULL,
-  `semester` double NOT NULL,
-  `usia` double NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+  `nilai_akhir` double NOT NULL,
+  `sertifikat` double NOT NULL,
+  `nilai_sikap` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `klasifikasi`
 --
 
-INSERT INTO `klasifikasi` (`id_klasifikasi`, `id_mhs`, `jml_tanggungan`, `nilai_ipk`, `penghasilan_ortu`, `semester`, `usia`) VALUES
-(18, 'CPB-000001', 100, 25, 50, 75, 25),
-(19, 'CPB-000002', 25, 50, 75, 100, 50),
-(20, 'CPB-000003', 50, 75, 100, 25, 75),
-(21, 'CPB-000004', 75, 100, 25, 50, 100),
-(23, 'CPB-000005', 100, 25, 50, 75, 25);
+INSERT INTO `klasifikasi` (`id_klasifikasi`, `id_mhs`, `nilai_akhir`, `sertifikat`, `nilai_sikap`) VALUES
+(18, 'CPB-000001', 70, 5, 3),
+(19, 'CPB-000002', 50, 3, 4),
+(20, 'CPB-000003', 75, 4, 4),
+(21, 'CPB-000004', 100, 1, 4),
+(23, 'CPB-000005', 25, 1, 3),
+(28, 'CPB-000001', 70, 5, 3),
+(30, 'CPB-000006', 70, 5, 5);
 
 -- --------------------------------------------------------
 
@@ -136,22 +151,20 @@ INSERT INTO `klasifikasi` (`id_klasifikasi`, `id_mhs`, `jml_tanggungan`, `nilai_
 -- Table structure for table `kriteria`
 --
 
-CREATE TABLE IF NOT EXISTS `kriteria` (
-`id_kriteria` int(5) NOT NULL,
+CREATE TABLE `kriteria` (
+  `id_kriteria` int(5) NOT NULL,
   `namakriteria` varchar(100) NOT NULL,
   `atribut` varchar(100) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `kriteria`
 --
 
 INSERT INTO `kriteria` (`id_kriteria`, `namakriteria`, `atribut`) VALUES
-(1, 'Nilai IPK', 'Benefit'),
-(2, 'Penghasilan Ortu', 'Cost'),
-(3, 'Semester', 'Benefit'),
-(4, 'Jumlah Tanggungan', 'Cost'),
-(5, 'Usia', 'Benefit');
+(6, 'Nilai Akhir', 'Benefit'),
+(7, 'Jumlah Sertifikat', 'Benefit'),
+(8, 'Nilai Sikap', 'Benefit');
 
 --
 -- Indexes for dumped tables
@@ -161,31 +174,31 @@ INSERT INTO `kriteria` (`id_kriteria`, `namakriteria`, `atribut`) VALUES
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
- ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- Indexes for table `calonbeasiswa`
 --
 ALTER TABLE `calonbeasiswa`
- ADD PRIMARY KEY (`id_mhs`);
+  ADD PRIMARY KEY (`id_mhs`);
 
 --
 -- Indexes for table `himpunan`
 --
 ALTER TABLE `himpunan`
- ADD PRIMARY KEY (`id_himpunan`);
+  ADD PRIMARY KEY (`id_himpunan`);
 
 --
 -- Indexes for table `klasifikasi`
 --
 ALTER TABLE `klasifikasi`
- ADD PRIMARY KEY (`id_klasifikasi`);
+  ADD PRIMARY KEY (`id_klasifikasi`);
 
 --
 -- Indexes for table `kriteria`
 --
 ALTER TABLE `kriteria`
- ADD PRIMARY KEY (`id_kriteria`);
+  ADD PRIMARY KEY (`id_kriteria`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -195,22 +208,27 @@ ALTER TABLE `kriteria`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `himpunan`
 --
 ALTER TABLE `himpunan`
-MODIFY `id_himpunan` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
+  MODIFY `id_himpunan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+
 --
 -- AUTO_INCREMENT for table `klasifikasi`
 --
 ALTER TABLE `klasifikasi`
-MODIFY `id_klasifikasi` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
+  MODIFY `id_klasifikasi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
 --
 -- AUTO_INCREMENT for table `kriteria`
 --
 ALTER TABLE `kriteria`
-MODIFY `id_kriteria` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id_kriteria` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
