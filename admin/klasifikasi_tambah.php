@@ -41,6 +41,8 @@ include "head.php";
                     <label class="col-sm-2 control-label text-right">Nilai Akhir:</label>
                     <div class="col-sm-3">
                         <input type="number" name="nilai_akhir">
+                        <br>
+                        <small>Penilaian dari 0 <= 100</small>
                         <!-- <select name='nilai_akhir' data-placeholder="Pilih Nilai Akhir..." class="required select">
                                 <option></option>";
                                 <?php
@@ -58,8 +60,9 @@ include "head.php";
                     <label class="col-sm-2 control-label text-right">Jumlah Sertifikat:</label>
                     <div class="col-sm-4">
                         <input type="number" name="sertifikat">
-
-                        <!-- <select name='sertifikat' data-placeholder="Pilih Penghasilan Ortu..." class="required select">
+                        <br>
+                        <small>Penilaian dari 1 <= 5</small>
+                                <!-- <select name='sertifikat' data-placeholder="Pilih Penghasilan Ortu..." class="required select">
                                 <option></option>
                                 <?php
                                 $query = "SELECT * FROM himpunan where id_kriteria='7' order by id_himpunan asc";
@@ -76,8 +79,10 @@ include "head.php";
                     <label class="col-sm-2 control-label text-right">Nilai Sikap:</label>
                     <div class="col-sm-3">
                         <input type="number" name="nilai_sikap">
+                        <br>
+                        <small>Penilaian dari 1 <= 5</small>
 
-                        <!-- <select name='nilai_sikap' data-placeholder="Pilih nilai_sikap..." class="required select">
+                                <!-- <select name='nilai_sikap' data-placeholder="Pilih nilai_sikap..." class="required select">
                             <option></option>
                             <?php
                             $query = "SELECT * FROM himpunan where id_kriteria='8' order by id_himpunan asc";
@@ -122,9 +127,9 @@ include "head.php";
 
         $where_id = "SELECT * FROM `klasifikasi` WHERE id_mhs='{$id_mhs}'";
         $where_result = mysqli_query($conn, $where_id);
-        if($where_result->num_rows == 1) {
+        if ($where_result->num_rows == 1) {
             echo "<script>window.alert('DATA MAHASISWA SUDAH DIBERI NILAI!');
-            window.location=(href='klasifikasi_tambah.php')</script>";        
+            window.location=(href='klasifikasi_tambah.php')</script>";
         } else {
             $sql = "insert into klasifikasi values
             ('','$id_mhs','$nilai_akhir','$sertifikat','$nilai_sikap')";
@@ -134,7 +139,6 @@ include "head.php";
             window.location=(href='klasifikasi.php')</script>";
             }
         }
-        
     }
     ?>
     <!-- /right lebels -->

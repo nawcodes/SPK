@@ -8,9 +8,10 @@ function kdauto($tabel, $inisial){
 	$conn = $GLOBALS['conn'];
 	$struktur = mysqli_query($conn,"SELECT * FROM $tabel");
 	$field = mysqli_fetch_field_direct($struktur, 0);
-	$panjang = $field->length;
+	$panjang = $field->max_length;
 
-
+	
+	
 
 	$qry = mysqli_query($conn,"SELECT max(".$field->name.")
 		FROM ".$tabel);
@@ -29,17 +30,19 @@ function kdauto($tabel, $inisial){
 
 
 	
-	
-
 	$angka++;
 	$angka = strval($angka);
 	$tmp = "";
 
-
-	for ($i=1; $i<=(strlen($inisial) +
-		 strlen($angka)) ; $i++) { 
-		$tmp=$tmp."0";
+	for ($i = 1; $i <= ($panjang - strlen($inisial) -
+		strlen($angka)); $i++) {
+		$tmp = $tmp . "0";
 	}
+
+	// for ($i=1; $i<=(strlen($inisial) +
+	// 	 strlen($angka)) ; $i++) { 
+	// 	$tmp=$tmp."0";
+	// }
 	return $inisial.$tmp.$angka;
 }
 
